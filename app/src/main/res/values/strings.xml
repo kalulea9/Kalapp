@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Kalapp</string>
+    <string name="app_name">Kalapp</string>
+    <string name="cool">Easy</string>
 </resources>
+
