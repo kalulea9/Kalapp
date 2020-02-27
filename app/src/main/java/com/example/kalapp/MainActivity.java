@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
     getMenuInflater().inflate(R.menu.menu, menu);
     return true;
+
     }
     public boolean onOptionsItemSelected(MenuItem items){
         int id = items.getItemId();
@@ -41,8 +42,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.music:
                 startActivity(new Intent(this,AnotherActivity1.class));
                 return true;
+            case R.id.cpro:
+                startActivity(new Intent(this,AnotherActivity2.class));
+                return  true;
             case R.id.address:
                 startActivity(new Intent(this, AnotherActivity2.class));
+                return true;
+            case R.id.list:
+                startActivity(new Intent(this, Activity_listview.class));
                 return true;
                 default:
         }
