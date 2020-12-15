@@ -9,12 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Recycler_Handler"></activity>
+        <receiver
+            android:name=".Broacast_reciever"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+
+        <activity android:name=".Recycler_Handler" />
         <activity android:name=".Splashscreen" />
         <activity android:name=".Activity_listview" />
         <activity android:name=".AnotherActivity2" />
         <activity android:name=".AnotherActivity1" />
         <activity android:name=".DisplayMessageActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
