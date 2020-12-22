@@ -1,48 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/AnotherActivity1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AnotherActivity1">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="199dp"
-        android:layout_height="57dp"
-        android:text="play"
-        android:textSize="44sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/buttonstart"
+            android:text="start Service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="139dp"
-        android:layout_height="63dp"
-        android:text="stop"
-        android:textSize="42sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        android:id="@+id/buttonstop"
+        android:text="stop Service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<LinearLayout/>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="175dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="159dp"
-        android:text="pause"
-        android:textSize="44"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</RelativeLayout>

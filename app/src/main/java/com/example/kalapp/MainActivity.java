@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
             //so long as a parent activity in android manifest .xml is specified
             int id = items.getItemId();
             switch (id) {
-                case R.id.music:
+                case R.id.showmusic:
                     startActivity(new Intent(this, AnotherActivity1.class));
                     startActivity(new Intent(this, AnotherActivity2.class));
                     return true;
-                case R.id.list:
+                case R.id.listView:
                     startActivity(new Intent(this, Activity_listview.class));
                     return true;
 

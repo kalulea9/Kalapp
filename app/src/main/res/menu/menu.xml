@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/music" android:title="Record" />
-    <item android:id="@+id/address" android:title="Email" />
-    <item android:id="@+id/list" android:title="List View" />
-    <item android:id="@+id/cpro" android:title="cprogram" />
+
+    <item android:id="@+id/phone"
+        android:title="PhoneCall"
+        app:showAsAction="always"
+        android:icon="@drawable/call_phone_24dp"
+        />
+    <item android:id="@+id/callPhone"
+        android:title="Call"
+        app:showAsAction="always"
+        android:icon="@drawable/call_24dp"
+
+        />
+
+    <item android:id="@+id/showmusic"
+        android:title="Display"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/email"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/showgallery"
+        android:title="Gallery"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/folder_24dp"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/show"
+        android:title="Show"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/folder_24dp"
+        app:showAsAction="always"
+        />
+
+
+
 </menu>
