@@ -72,7 +72,7 @@ ListView listView;
         switch (id){
             case R.id.callPhone:
                 Intent intentDial =new Intent(Intent.ACTION_DIAL);
-                intentDial.setData(Uri.parse("tel:"+"0775218489"));
+                intentDial.setData(Uri.parse("tel:"+"0754840549"));
                 if (Build.VERSION.SDK_INT >= M) {
                     if (getApplicationContext().checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
                         ActivityCompat.requestPermissions(Activity_listview.this,new String[]{Manifest.permission.CALL_PHONE},100);;

@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
+
+       // Registering	new	Application	class	in	the	manifest
+        android:icon="@drawable/icon”
+        android:name=".MyApplication">
+        [...	Manifest	nodes	...]
+
+
+    <receiver
             android:name=".Broacast_reciever"
             android:enabled="true"
-            android:exported="true"></receiver>
-
+            android:exported="true" />
 
         <activity android:name=".Recycler_Handler" />
         <activity android:name=".Splashscreen" />
@@ -21,7 +27,6 @@
         <activity android:name=".AnotherActivity2" />
         <activity android:name=".AnotherActivity1" />
         <activity android:name=".DisplayMessageActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +40,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".MyService"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+             />
+
+        <service android:name=".MyService" />
+
+
     </application>
+
+    <!-- uses permission to make an alarm -->
+    <uses-permission android:name="android.permission.SET_ALARM" />
+
+
+    <!--The content provider is declared -->
+    <content_provider android:name="userDictionaryProvider"
+        android:authorities="user_dictionary"
+        android:syncable="false"
+        android:multiprocess="false"
+        android:exported="true"
+        android:readPermission="android.permission.READ_USER_DICTIONARY"
+        android:writePermission="android.permission.WRITE_USER_DICTIONARY"/>
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- uses permission to make phone call -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- uses permission to make phone vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- uses permission to access internet services -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- uses permission to access the network -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- uses permission to write and read external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
 
 </manifest>

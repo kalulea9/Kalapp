@@ -19,14 +19,20 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startedId){
 
         player = MediaPlayer.create(getApplicationContext(),R.raw.drake);
+        // providing the boolean  value as true to play
+        // the audio on loop
         player.setLooping(true);
-        player.start();
+
+        //starting the process
+        player.start();\
+        // returns the status of the program
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        // stopping the process
         player.stop();
     }
 }

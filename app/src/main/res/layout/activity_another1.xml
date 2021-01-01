@@ -8,28 +8,37 @@
     tools:context=".AnotherActivity1">
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="170dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
 
         <Button
             android:id="@+id/buttonstart"
-            android:text="start Service"
+            android:text="@String/start Service"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            />
 
     <Button
         android:id="@+id/buttonstop"
-        android:text="stop Service"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-<LinearLayout/>
-
-
-
-
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@String/stop Service" />
 
 
 </RelativeLayout>

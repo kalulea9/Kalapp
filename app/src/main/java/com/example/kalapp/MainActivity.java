@@ -1,6 +1,8 @@
 package com.example.kalapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -63,23 +65,51 @@ public class MainActivity extends AppCompatActivity {
             //Get Battery %
             int level = i.getIntExtra("level", 0);
             //Find the progressbar created in main.xml
-            ProgressBar pb = (ProgressBar) findViewById(R.id.bar);
+            ProgressBar pb = (ProgressBar) findViewById(R.id.progressBa);
 
             //Set progress level with battery % value
             pb.setProgress(level);
 
             //Find textview control created in main.xml
-            TextView tv = (TextView) findViewById(R.id.bat);
+            TextView tv = (TextView) findViewById(R.id.btnAlarm);
             //Set TextView with text
             tv.setText("My Battery Level is at: " + Integer.toString(level) + "%");
+
+           final EditText Firstname,Lastname,Reg_No;
+            Button Submit,View_data;
+            Firstname=findViewById(R.id.fname);
+            Lastname=findViewById(R.id.lname);
+            Reg_No=findViewById(R.id.regno);
+
+            Submit=findViewById(R.id.submit_data);
+            View_data=findViewById(R.id.view_data);
+
+            Submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String First_name=Firstname.getText().toString();
+                    String Last_name=Lastname.getText().toString();
+                    String Reg_N=Firstname.getText().toString();
+
+                    if (First_name.isEmpty()) {
+                        Toast.makeText(MainActivity.this, "enter first name", Toast.LENGTH_SHORT).show();
+                    }
+
+                       else if (Last_name.isEmpty()) {
+                            Toast.makeText(MainActivity.this, "enter last name", Toast.LENGTH_SHORT).show();
+
+                        }
+                       else if (Reg_N.isEmpty()) {
+                            Toast.makeText(MainActivity.this, "enter reg no", Toast.LENGTH_SHORT).show();
+
+                    }else {
+                           //submit to data base
+                        //long user_added = helper.insertData(First_name,Last_name,Reg_N);
+                    }
+                }
+            });
         }
     };
-
-
-
-        public static String gmail = "https://www.gmail.com";
-        TextView play;
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -88,10 +118,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         }
 
         public void sendMessage(View view) {
-            EditText message = (EditText) findViewById(R.id.sendmessage);
+            EditText message = (EditText) findViewById(R.id.message);
             Toast.makeText(this, "sending message" + message.getText().toString(),
                     Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, DisplayMessageActivity.class);
@@ -99,6 +131,27 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             message.setText("");
         }
+
+    //Define a method to send alerts
+    public void startAlert(View view){
+
+        EditText text=(EditText)findViewById(R.id.textClick);
+        int in = Integer.parseInt(text.getText().toString());
+
+        //Create an intent and call your receiver
+        Intent intent = new Intent(this,BroadcastReceiver.class);
+
+        //Create a pending Intent to be fired
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),0,intent,0);
+
+        //Recall the alarm manager class
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        //Real time clock to be used
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + (in * 1000),pendingIntent);
+        Toast.makeText(this,"Alarm set in" + in + "seconds",Toast.LENGTH_LONG).show();
+    }
 
         public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.menu, menu);
@@ -114,13 +167,30 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(this, AnotherActivity1.class));
                     startActivity(new Intent(this, AnotherActivity2.class));
                     return true;
-                case R.id.listView:
-                    startActivity(new Intent(this, Activity_listview.class));
-                    return true;
 
-            }
+                case R.id.callPhone:
+
+
+                case R.id.listView:
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setData(Uri.parse("mailto"));
+                    String to [] = {"kalulea9@gmail.com","kenks@yahaoo.com","kalulepeter979@gmail.com","peterkalule7@gmail.com"};
+                    i.putExtra(Intent.EXTRA_EMAIL, to);
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Reminder");
+                    i.putExtra(Intent.EXTRA_TEXT, "You are reminded to hand in your assignment as soon as possible");
+                    i.setType("message/rfc822");
+
+                    startActivity(i);
+                    return true;
+               // EditText UserEmail;
+               // EditText PassWord;
+
+
+
+        }
             return super.onOptionsItemSelected(items);
         }
+
     }
 
 
